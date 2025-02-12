@@ -1,0 +1,93 @@
+[
+  {
+    "date": "2025-02-12",
+    "from": "Helipad",
+    "to": "Airport",
+    "time": "09:00 - 09:30",
+    "duration": "30m",
+    "notes": "Slot #1",
+    "price": 100
+  },
+  {
+    "date": "2025-02-12",
+    "from": "Airport",
+    "to": "Helipad",
+    "time": "09:30 - 10:00",
+    "duration": "30m",
+    "notes": "Slot #2",
+    "price": 120
+  },
+  {
+    "date": "2025-02-13",
+    "from": "Helipad",
+    "to": "Airport",
+    "time": "10:00 - 10:30",
+    "duration": "30m",
+    "notes": "Slot #3",
+    "price": 110
+  },
+  {
+    "date": "2025-02-13",
+    "from": "Airport",
+    "to": "Helipad",
+    "time": "10:30 - 11:00",
+    "duration": "30m",
+    "notes": "Slot #4",
+    "price": 130
+  },
+  {
+    "date": "2025-02-14",
+    "from": "Helipad",
+    "to": "Airport",
+    "time": "11:00 - 11:30",
+    "duration": "30m",
+    "notes": "Slot #5",
+    "price": 105
+  },
+
+  {
+    "date": "2025-02-12",
+    "from": "Helipad",
+    "to": "Airport",
+    "time": "11:00 - 12:30",
+    "duration": "30m",
+    "notes": "Slot #7",
+    "price": 100
+  },
+  {
+    "date": "2025-02-12",
+    "from": "Helipad",
+    "to": "Airport",
+    "time": "10:00 - 11:30",
+    "duration": "30m",
+    "notes": "Slot #6",
+    "price": 100
+  },
+  {
+    "date": "2025-02-12",
+    "from": "Helipad",
+    "to": "Airport",
+    "time": "09:30 - 10:00",
+    "duration": "30m",
+    "notes": "Slot #2",
+    "price": 120
+  },
+  {
+    "date": "2025-02-12",
+    "from": "Airport",
+    "to": "Helipad",
+    "time": "01:30 - 10:00",
+    "duration": "30m",
+    "notes": "Slot #49",
+    "price": 120
+  },
+  {
+    "date": "2025-02-12",
+    "from": "Airport",
+    "to": "Helipad",
+    "time": "03:30 - 10:00",
+    "duration": "30m",
+    "notes": "Slot #7",
+    "price": 120
+  }
+]
