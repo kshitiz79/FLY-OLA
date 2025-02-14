@@ -1,11 +1,10 @@
-// src/pages/RoundTripPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaHelicopter } from 'react-icons/fa';
-import { useGetBookingsQuery } from '../redux/store';
-import SearchBar from '../components/SearchBar';
+import { useGetBookingsQuery } from './../../redux/store';
+import SearchBar from './../../components/SearchAdmin';
 
-const RoundTripPage = () => {
+const RoundTrip = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -50,32 +49,50 @@ const RoundTripPage = () => {
         slot.date === returnDate
       );
     });
-    setOutboundSlots(out.sort((a, b) => {
-      const timeA = new Date(`1970-01-01T${a.time.split(' - ')[0]}:00`).getTime();
-      const timeB = new Date(`1970-01-01T${b.time.split(' - ')[0]}:00`).getTime();
-      return timeA - timeB; // Sort in ascending order
-    }));
-    setReturnSlots(ret.sort((a, b) => {
-      const timeA = new Date(`1970-01-01T${a.time.split(' - ')[0]}:00`).getTime();
-      const timeB = new Date(`1970-01-01T${b.time.split(' - ')[0]}:00`).getTime();
-      return timeA - timeB; // Sort in ascending order
-    }));
+    setOutboundSlots(out);
+    setReturnSlots(ret);
   };
 
+  // Redirect if tripType is oneWay
   useEffect(() => {
     if (tripType === 'oneWay') {
-      navigate('/oneway', {
+      navigate('booking-cu-flight/dashboard/single-trip-page-admin', {
         state: { tripType, from, to, departureDate, passengers: passengersClass },
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tripType]);
 
+  // Filter slots when booking data or dates change
   useEffect(() => {
     if (slotsData.length > 0) {
       filterSlots();
     }
   }, [slotsData, from, to, departureDate, returnDate]);
+
+  // Enforce allowed return dates: only same day or the next day after departureDate
+  useEffect(() => {
+    const departure = new Date(departureDate);
+    const sameDayStr = departureDate;
+    const nextDay = new Date(departure);
+    nextDay.setDate(departure.getDate() + 1);
+    const nextDayStr = nextDay.toISOString().split("T")[0];
+
+    // If returnDate is not one of the allowed dates, reset it (here we default to departureDate)
+    if (returnDate !== sameDayStr && returnDate !== nextDayStr) {
+      setReturnDate(sameDayStr);
+    }
+  }, [departureDate, returnDate]);
+
+  // Compute allowed return dates (if your SearchBar supports restricting dates)
+  const allowedReturnDates = (() => {
+    const departure = new Date(departureDate);
+    const sameDay = departureDate;
+    const nextDay = new Date(departure);
+    nextDay.setDate(departure.getDate() + 1);
+    const nextDayStr = nextDay.toISOString().split("T")[0];
+    return { sameDay, nextDay: nextDayStr };
+  })();
 
   const handleBookNow = async () => {
     if (selectedOutboundIndex == null || selectedReturnIndex == null) return;
@@ -102,8 +119,8 @@ const RoundTripPage = () => {
       finalTotal: dynamicPrice,
     };
 
-    // Instead of booking here, redirect to BookCustumerFlite with the details
-    navigate('/confirm-booking', {
+    // Instead of booking here, redirect to the booking form with the details
+    navigate('dashboard/round-trip-page-admin/dashboard/booking-form-admin', {
       state: {
         ...newBooking,
         packageOption,
@@ -130,9 +147,10 @@ const RoundTripPage = () => {
         packageOption={packageOption}
         setPackageOption={setPackageOption}
         onUpdate={filterSlots}
+        allowedReturnDates={allowedReturnDates} // Pass allowed dates if SearchBar supports it
       />
 
-      <div className="mt-8">
+      <div className="mt-8 ">
         <h2 className="text-xl font-semibold mb-4">
           {from} ⇄ {to}
         </h2>
@@ -300,4 +318,4 @@ const RoundTripPage = () => {
   );
 };
 
-export default RoundTripPage;
+export default RoundTrip;

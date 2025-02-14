@@ -5,7 +5,7 @@
     "to": "Airport",
     "time": "09:00 - 09:30",
     "duration": "30m",
-    "notes": "Slot #1",
+    "notes": "Seat Left 1",
     "price": 100
   },
   {
@@ -14,7 +14,7 @@
     "to": "Helipad",
     "time": "09:30 - 10:00",
     "duration": "30m",
-    "notes": "Slot #2",
+    "notes": "Seat Left 2",
     "price": 120
   },
   {
@@ -23,7 +23,7 @@
     "to": "Airport",
     "time": "10:00 - 10:30",
     "duration": "30m",
-    "notes": "Slot #3",
+    "notes": "Seat Left 3",
     "price": 110
   },
   {
@@ -32,7 +32,7 @@
     "to": "Helipad",
     "time": "10:30 - 11:00",
     "duration": "30m",
-    "notes": "Slot #4",
+    "notes": "Seat Left #4",
     "price": 130
   },
   {
@@ -41,44 +41,43 @@
     "to": "Airport",
     "time": "11:00 - 11:30",
     "duration": "30m",
-    "notes": "Slot #5",
+    "notes": "Seat Left 5",
     "price": 105
   },
-
   {
-    "date": "2025-02-12",
+    "date": "12-02-2024",
     "from": "Helipad",
     "to": "Airport",
     "time": "11:00 - 12:30",
     "duration": "30m",
-    "notes": "Slot #7",
+    "notes": "Seat Left 3",
     "price": 100
   },
   {
-    "date": "2025-02-12",
+    "date": "12-02-2024",
     "from": "Helipad",
     "to": "Airport",
     "time": "10:00 - 11:30",
     "duration": "30m",
-    "notes": "Slot #6",
+    "notes": "Seat Left 3",
     "price": 100
   },
   {
-    "date": "2025-02-12",
+    "date": "12-02-2024",
     "from": "Helipad",
     "to": "Airport",
     "time": "09:30 - 10:00",
     "duration": "30m",
-    "notes": "Slot #2",
+    "notes": "Seat Left 2",
     "price": 120
   },
   {
-    "date": "2025-02-12",
-    "from": "Airport",
+    "date": "12-02-2024",
+    "from": "Prayagraj Airport",
     "to": "Helipad",
     "time": "01:30 - 10:00",
     "duration": "30m",
-    "notes": "Slot #49",
+    "notes": "Seat Left 4",
     "price": 120
   },
   {
@@ -87,7 +86,7 @@
     "to": "Helipad",
     "time": "03:30 - 10:00",
     "duration": "30m",
-    "notes": "Slot #7",
+    "notes": "Seat Left 3",
     "price": 120
   }
 ]

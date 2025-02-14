@@ -1,9 +1,9 @@
 // src/pages/Home.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import bgImage from './../../public/4.png';
+import bgImage from './../../../public/4.png';
 
-const Home = () => {
+const BookCustumerFlite = () => {
   const navigate = useNavigate();
 
   // Local states for trip type and form fields
@@ -34,7 +34,7 @@ const Home = () => {
   // Book Now: navigate with the selected data
   const handleBookNow = () => {
     if (tripType === 'oneWay') {
-      navigate('/oneway', {
+      navigate('dashboard/single-trip-page-admin', {
         state: {
           tripType,
           from, // will be 'Airport' or 'Helipad' based on user selection
@@ -44,7 +44,7 @@ const Home = () => {
         }
       });
     } else {
-      navigate('/roundtrip', {
+      navigate('/dashboard/round-trip-page-admin', {
         state: {
           tripType,
           from, // 'Airport'
@@ -232,4 +232,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default BookCustumerFlite;

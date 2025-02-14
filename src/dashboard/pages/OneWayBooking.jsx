@@ -1,11 +1,11 @@
 // src/pages/OneWayPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import SearchBar from '../components/SearchBar';
+import SearchBar from './../../components/SearchAdmin';
 import { FaHelicopter } from 'react-icons/fa';
-import { useGetBookingsQuery } from '../redux/store'; // Use your RTK Query hook
+import { useGetBookingsQuery } from './../../redux/store'; // Use your RTK Query hook
 
-const OneWayPage = () => {
+const OneWay = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -41,7 +41,7 @@ const OneWayPage = () => {
   // If tripType becomes roundTrip, navigate to the round trip page
   useEffect(() => {
     if (tripType === 'roundTrip') {
-      navigate('/roundtrip', {
+      navigate('/dashboard/round-trip-page-admin', {
         state: { tripType, from, to, departureDate, returnDate, passengers: passengersClass },
       });
     }
@@ -142,7 +142,7 @@ const OneWayPage = () => {
               {/* Instead of booking immediately, redirect to BookCustumerFlite page */}
               <button
                 onClick={() => {
-                  navigate('/confirm-booking', {
+                  navigate('round-trip-page-admin/dashboard/round-trip-page-admin/dashboard/booking-form-admin', {
                     state: {
                       tripType,
                       from,
@@ -178,4 +178,4 @@ const OneWayPage = () => {
   );
 };
 
-export default OneWayPage;
+export default OneWay;

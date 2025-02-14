@@ -1,7 +1,7 @@
 // SearchBar.jsx
 import React from 'react';
 
-const SearchBar = ({
+const SearchAdmin = ({
   tripType,
   setTripType,
   from,
@@ -16,11 +16,10 @@ const SearchBar = ({
   setPassengersClass,
   packageOption,
   setPackageOption,
-  onUpdate,
-  allowedReturnDates // added prop to enforce allowed return dates
+  onUpdate
 }) => {
   return (
-    <div className="bg-blue-600 text-white rounded-lg p-4 px-12">
+    <div className="bg-blue-600 text-white rounded-lg p-4 px-10 w">
       {/* Trip Type Options (TOP) */}
       <div className="flex items-center space-x-4 mb-4">
         <label className="flex items-center cursor-pointer">
@@ -57,7 +56,7 @@ const SearchBar = ({
               type="text"
               value={from}
               onChange={(e) => setFrom(e.target.value)}
-              className="w-20 md:w-60 rounded px-2 py-1 bg-white text-black"
+              className="w-20 md:w-40  rounded px-2 py-1 bg-white text-black"
               placeholder="Helipad"
             />
           </div>
@@ -68,7 +67,7 @@ const SearchBar = ({
               type="text"
               value={to}
               onChange={(e) => setTo(e.target.value)}
-              className="w-20 md:w-60 text-black rounded px-2 py-1"
+              className="w-20 md:w-40 text-black rounded px-2 py-1"
               placeholder="Airport"
             />
           </div>
@@ -94,8 +93,6 @@ const SearchBar = ({
               value={returnDate}
               onChange={(e) => setReturnDate(e.target.value)}
               className="text-black rounded px-2 py-1"
-              min={allowedReturnDates ? allowedReturnDates.sameDay : undefined}
-              max={allowedReturnDates ? allowedReturnDates.nextDay : undefined}
             />
           </div>
         )}
@@ -117,20 +114,23 @@ const SearchBar = ({
           </select>
         </div>
 
-        {/* Update Search Button */}
-        <button
+      <div >
+      <button
           onClick={onUpdate}
-          className="bg-white text-blue-600 font-semibold px-4 py-2 rounded-lg"
+          className="bg-white text-blue-600 font-semibold px-4 py-2 rounded-lg  mt-4 "
         >
           Update Search
         </button>
       </div>
+       
+      </div>
 
-      {/* Package Selection Row (BOTTOM, only for Round Trip) */}
+ 
       {tripType === 'roundTrip' && (
         <div className="mt-6">
+ 
           <div className="flex gap-4">
-            {/* Package options can be added here if needed */}
+     
           </div>
         </div>
       )}
@@ -138,4 +138,4 @@ const SearchBar = ({
   );
 };
 
-export default SearchBar;
+export default SearchAdmin;
